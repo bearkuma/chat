@@ -1,36 +1,33 @@
-/*
-var port = process.env.PORT || 8080;
-var http = require('http'),
+var port = process.env.PORT || 8080,
+	http = require('http'),
 	url = require('url'),
 	path = require('path'),
 	fs = require('fs');
 
-var server = http.createServer(function(req,res){
-	if (req.url === '/'){
-		req.url = 'index.html';
+http.createServer(function(req,res){
+	if (req.url ==='/'){
+		req.url = '/index.html';
 	}
-	var x = url.parse(req.url, true);
-	var fullpath = path.resolve(__dirname, '.' + x.pathname);
-	
+	var x = url.parse(req.url,true);
+	var fullpath = path.resolve(__dirname,'.'+x.pathname);
 	if (fs.existsSync(fullpath)){
 		var ext = path.extname(fullpath).toLowerCase();
-		if (ext.match('html')){
-			res.writeHead(200, {'Content-type':'type/html'});
+		if(ext.match('html')){
+			res.writeHead(200,{'Content-type':'text/html'});
 			var strm = fs.createReadStream(fullpath);
 			strm.pipe(res);
-		} else if (ext.match(/\.(png|jpg|jpeg|gif|css|js|json)$/) && x.pathname != '/chatserver.js'){
+		} else if (ext.match(/\.(png|jpg|jpeg|gif||css|js|json)$/) && x.pathname != '/chatserver.js'){
 			var strm = fs.createReadStream(fullpath);
 			strm.pipe(res);
 		} else {
-			res.writeHead(404, {'Content-type': 'text/plain'});
-			res.end('404 Not Found');
-		}	
+			res.writeHead(404,{'Content-type':'text/plain'});
+			res.end('404 not found');
+		}
 	} else {
-		res.writeHead(404, {'Content-type': 'text/plain'});
-		res.end('404 Not Found');
+			res.writeHead(404,{'Content-type':'text/plain'});
+			res.end('404 not found');		
 	}
 }).listen(port);
-*/
 
 var port = process.env.PORT || 8080,
 	http = require('http'),
