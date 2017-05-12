@@ -41,13 +41,14 @@ io.sockets.on('connection',function(socket){
 		var msg = name + '　さんが入室しました';
 		hash[socket.id] = name;
 		io.sockets.emit('toAll',{value: msg})
+		io.sockets.emit('enter',{value: name});
 	})
 	
 	socket.on('toAll',function(data){
 		io.sockets.emit('toAll',{value: data.value});
 	})
 	
-	socket.on('exit',function(){
+	socket.on('disconnect',function(){
 		var msg = hash[socket.id] + 'さんが退出しました';
 		delete hash[socket.id];
 		io.sockets.emit('publish',{value: msg});
