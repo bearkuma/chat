@@ -1,11 +1,16 @@
 window.onload = function(){
 	var socketio = io.connect();
 	
-	socketio.on('enter', function(name){});
+	socketio.on('enter', function(data){
+		var domMemIn = document.createElement('div');
+		domMemIn.innerHTML = data.value;
+		var member = document.getElementById('member');
+		member.prepend(domMemIn);
+	});
 	socketio.on('toAll', function(data){
 			addMsg(data.value);
 	});
-	socketio.on('exit', function(){});	
+	socketio.on('disconnect', function(){});	
 	
 	function toAllMsg(){
 		var msgInput = document.getElementById('msgInput');
