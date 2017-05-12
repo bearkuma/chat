@@ -35,7 +35,9 @@ window.onload = function(){
 	
 	var send = document.getElementById('send');
 		send.onclick = function(){
-			toAllMsg();
+			if(msgInput.value != ''){
+				toAllMsg();
+			}
 		}
 	msgInput.onkeydown = function(e){
 			if(msgInput.value != ''){
