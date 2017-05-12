@@ -37,5 +37,12 @@ window.onload = function(){
 		send.onclick = function(){
 			toAllMsg();
 		}
+	msgInput.onkeydown = function(e){
+			if(msgInput.value != ''){
+				if(e.key === 'Enter'){
+					toAllMsg();
+				}
+			}
+		}
 	
 }
