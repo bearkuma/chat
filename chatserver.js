@@ -29,6 +29,7 @@ var server = http.createServer(function(req,res){
 		res.end('404 Not Found');
 	}
 }).listen(port);
+/*
 console.log('start server');
 
 var io = require('socket.io').listen(server);
@@ -53,3 +54,4 @@ io.sockets.on('connection',function(socket){
 		io.sockets.emit('publish',{value: msg});
 	})
 });
+*/
