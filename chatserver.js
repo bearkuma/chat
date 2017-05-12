@@ -4,7 +4,7 @@ var port = process.env.PORT || 8080,
 	path = require('path'),
 	fs = require('fs');
 
-http.createServer(function(req,res){
+var server = http.createServer(function(req,res){
 	if (req.url ==='/'){
 		req.url = '/index.html';
 	}
@@ -29,7 +29,6 @@ http.createServer(function(req,res){
 	}
 }).listen(port);
 
-/*
 console.log('start server');
 
 var io = require('socket.io').listen(server);
@@ -54,4 +53,4 @@ io.sockets.on('connection',function(socket){
 		io.sockets.emit('publish',{value: msg});
 	})
 });
-*/
+
