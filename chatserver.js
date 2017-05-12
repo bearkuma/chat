@@ -1,3 +1,4 @@
+/*
 var port = process.env.PORT || 8080;
 var http = require('http'),
 	url = require('url'),
@@ -29,6 +30,41 @@ var server = http.createServer(function(req,res){
 		res.end('404 Not Found');
 	}
 }).listen(port);
+*/
+
+var port = process.env.PORT || 8080,
+	http = require('http'),
+	url = require('url'),
+	path = require('path'),
+	fs = require('fs');
+
+http.createServer(function(request,response){
+	if (request.url ==='/'){
+		request.url = '/index.html';
+	}
+	var x = url.parse(request.url,true);
+	var fullpath = path.resolve(__dirname,'.'+x.pathname);
+	if (fs.existsSync(fullpath)){
+		var ext = path.extname(fullpath).toLowerCase();
+		if(ext.match('html')){
+			response.writeHead(200,{'Content-type':'text/html'});
+			var strm = fs.createReadStream(fullpath);
+			strm.pipe(response);
+		} else if (ext.match(/\.(png|jpg|jpeg|gif||css|js)$/)){
+			var strm = fs.createReadStream(fullpath);
+			strm.pipe(response);
+		} else {
+			response.writeHead(404,{'Content-type':'text/plain'});
+			response.end('404 not found');
+		}
+	} else {
+			response.writeHead(404,{'Content-type':'text/plain'});
+			response.end('404 not found');		
+	}
+}).listen(port);
+
+
+
 /*
 console.log('start server');
 
