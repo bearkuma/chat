@@ -1,5 +1,5 @@
 window.onload = function(){
-	var socketio = io.connect('http://localhost:8080');
+	var socketio = io.connect();
 	
 	socketio.on('enter', function(name){});
 	socketio.on('toAll', function(data){
