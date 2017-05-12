@@ -1,0 +1,21 @@
+body{
+	text-align: center;
+	background-color:#CC99CC;
+}
+
+h1{
+	font-size:100px;
+	margin:10%;
+}
+
+#nameArea{
+	margin:5%  auto;
+}
+
+#enter{
+	background-color: #66FF66;
+	border:2px solid #44CC44;
+	border-radius: 110px;
+	font-size:30px;
+}
+
