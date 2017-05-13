@@ -1,7 +1,7 @@
 window.onload = function(){
 	var myName = localStorage.getItem('chatter');
 	if(myName != null){
-	var socketio = io.connect('http://localhost:8080');
+	var socketio = io.connect();
 	}
 	function esc(s) {
   		return s.replace(/\&/g, "&amp;")
