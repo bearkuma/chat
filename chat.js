@@ -1,5 +1,5 @@
 window.onload = function(){
-	if(myname != null){
+	if(myName != null){
 		var socketio = io.connect();
 	}
 	function esc(s) {
