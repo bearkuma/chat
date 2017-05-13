@@ -12,7 +12,7 @@ window.onload = function(){
 				domMemIn.id = userId[i];
 			member.prepend(domMemIn);
 		}
-		member.style.color = '#FF5';
+		member.style.color = '#5D5';
 	});
 	socketio.on('toAll', function(data){
 		addMsg(data.value);
