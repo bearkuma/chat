@@ -39,12 +39,14 @@ var userIdArray = [];
 io.sockets.on('connection',function(socket){
 	
 	socket.on('enter',function(data){
+		if(data.value != null){
 		var msg = data.value + 'さんが入室しました';
 		hash[socket.id] = data.value;
 		userArray.push(data.value);
 		userIdArray.push(socket.id);
 		io.sockets.emit('toAll',{value: msg, person: '　'});
 		io.sockets.emit('enter',{value: data.value,userList: userArray,userId: userIdArray});
+		}
 	})
 	
 	socket.on('toAll',function(data){
