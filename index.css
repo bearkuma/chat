@@ -1,22 +1,30 @@
 body{
 	text-align: center;
 	background-color:#CC99CC;
+	font-size:calc(9px + 1vw);
 }
 
 h1{
-	font-size:100px;
-	margin-top:10%;
-	margin-bottom:5%;
+	font-size:calc(15px + 10vw);
+}
+
+button{
+	font-size:calc(10px + 1.5vw);
+	margin-bottom:0;
+}
+
+h1{
+	margin-top:5vh;
+	margin-bottom:10vw;
 }
 
 #nameArea{
-	margin-bottom: 10%;
+	margin-bottom: 10vh;
 }
 
 #enter{
 	background-color: #66FF66;
 	border:2px solid #44CC44;
 	border-radius: 110px;
-	font-size:30px;
 }
 
