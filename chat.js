@@ -1,4 +1,5 @@
 window.onload = function(){
+	var myName = localStorage.getItem('chatter');
 	if(myName != null){
 		var socketio = io.connect();
 	}
@@ -65,7 +66,6 @@ window.onload = function(){
 			domNew1.style.borderRadius = '100px';
 		}
 	}
-	var myName = localStorage.getItem('chatter');
 	start(myName);
 	
 	function start (name){
