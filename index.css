@@ -5,11 +5,12 @@ body{
 
 h1{
 	font-size:100px;
-	margin:10%;
+	margin-top:10%;
+	margin-bottom:5%;
 }
 
 #nameArea{
-	margin:5%  auto;
+	margin-bottom: 10%;
 }
 
 #enter{
