@@ -1,6 +1,10 @@
 window.onload = function(){
 	var socketio = io.connect();
-	
+	function esc(s) {
+  	return s.replace(/\&/g, "&amp;")
+          	.replace(/</g, "&lt;")
+          	.replace(/>/g, "&gt;");
+	}
 	socketio.on('enter', function(data){
 		var userList = data.userList;
 		var userId = data.userId;
@@ -8,7 +12,7 @@ window.onload = function(){
 		member.innerHTML = '';
 		for(var i = 0; i < userList.length; i++){
 			var domMemIn = document.createElement('div');
-				domMemIn.innerHTML = data.userList[i];
+				domMemIn.innerHTML = esc(data.userList[i]);
 				domMemIn.id = userId[i];
 			member.prepend(domMemIn);
 		}
@@ -24,7 +28,7 @@ window.onload = function(){
 		member.innerHTML = '';
 		for(var i = 0; i < userList.length; i++){
 			var domMemOut = document.createElement('div');
-				domMemOut.innerHTML = data.userList[i];
+				domMemOut.innerHTML = esc(data.userList[i]);
 				domMemOut.id = userId[i];
 			member.prepend(domMemOut);
 		}
@@ -39,7 +43,7 @@ window.onload = function(){
 	
 	function addMsg(msg){
 		var domNew = document.createElement('div');
-		domNew.innerHTML = msg + '(' + new Date().toLocaleDateString() + ')';
+		domNew.innerHTML = esc(msg + '(' + new Date().toLocaleDateString() + ')');
 		var contents = document.getElementById('contents');
 		contents.prepend(domNew);
 	}
