@@ -1,6 +1,6 @@
 window.onload = function(){
 	
-	var socketio = io.connect('http://localhost');
+	var socketio = io.connect('http://localhost:8080');
 	
 	function esc(s) {
   		return s.replace(/\&/g, "&amp;")
