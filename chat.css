@@ -12,8 +12,9 @@ button{
 	width:14vw;
 	max-width:100px;
 	font-size:calc(6px + 0.5vw);
-  }
+
 }
+
 
 #container{
 	position:relative;
@@ -24,7 +25,7 @@ button{
 	position:absolute;
 	top:0;
 	left:0;
-	height:90%;
+	height:100%;
 	width:20%;
 }
 #memberTop{
@@ -41,7 +42,7 @@ button{
 	position:absolute;
 	top:0;
 	right:0;
-	height:89%;
+	height:99%;
 	width:80%;
 	padding:1%;
 	overflow:scroll;
