@@ -12,7 +12,7 @@ window.onload = function(){
 				domMemIn.id = userId[i];
 			member.prepend(domMemIn);
 		}
-		member.style.color = '#AF5';
+		member.style.color = '#FF5';
 	});
 	socketio.on('toAll', function(data){
 		addMsg(data.value);
@@ -28,7 +28,7 @@ window.onload = function(){
 				domMemOut.id = userId[i];
 			member.prepend(domMemOut);
 		}
-		member.style.color = '#AF5';
+		member.style.color = '#FF5';
 	});
 	function toAllMsg(){
 		var msgInput = document.getElementById('msgInput');
