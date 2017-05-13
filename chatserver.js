@@ -16,7 +16,7 @@ var server = http.createServer(function(req,res){
 			res.writeHead(200,{'Content-type':'text/html'});
 			var strm = fs.createReadStream(fullpath);
 			strm.pipe(res);
-		} else if (ext.match(/\.(png|jpg|jpeg|gif||css|js)$/) && x.pathname != '/chatserver.js'){
+		} else if (ext.match(/\.(png|jpg|jpeg|gif||css|js)$/) && x.pathname != 'chatserver.js'){
 			var strm = fs.createReadStream(fullpath);
 			strm.pipe(res);
 		} else {
@@ -28,7 +28,6 @@ var server = http.createServer(function(req,res){
 			res.end('404 not found');		
 	}
 }).listen(port);
-
 console.log('start server');
 
 var io = require('socket.io').listen(server);
@@ -39,27 +38,29 @@ var userIdArray = [];
 
 io.sockets.on('connection',function(socket){
 	
-	socket.on('enter',function(name){
-		var msg = name + '　さんが入室しました';
-		hash[socket.id] = name;
-		userArray.push(name);
+	socket.on('enter',function(data){
+		var msg = data.value + 'さんが入室しました';
+		hash[sockeat.id] = data.value;
+		userArray.push(data.value);
 		userIdArray.push(socket.id);
-		io.sockets.emit('toAll',{value: msg});
-		io.sockets.emit('enter',{value: name,userList: userArray,userId: userIdArray});
+		io.sockets.emit('toAll',{value: msg, person: '　'});
+		io.sockets.emit('enter',{value: data.value,userList: userArray,userId: userIdArray});
 	})
 	
 	socket.on('toAll',function(data){
-		io.sockets.emit('toAll',{value: data.value});
+		if(data.value.length <= 210){
+			io.sockets.emit('toAll',{value: data.value,person: data.person});
+		}
 	})
 	
 	socket.on('disconnect',function(){
-		var msg = hash[socket.id] + '　さんが退出しました';
+		var msg = hash[socket.id] + 'さんが退出しました';
+		io.sockets.emit('toAll', {value:msg,person:'　'});
 		delete hash[socket.id];
-		io.sockets.emit('toAll', {value:msg});
 		var searchNum = userIdArray.indexOf(socket.id);
 		userIdArray.splice(searchNum, 1);
 		userArray.splice(searchNum, 1);
 		io.sockets.emit('disconnect',{userList: userArray,userId: userIdArray});
 	})
+	
 });
-
