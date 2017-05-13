@@ -1,7 +1,7 @@
 window.onload = function(){
 	var myName = localStorage.getItem('chatter');
 	if(myName != null){
-		var socketio = io.connect();
+	var socketio = io.connect('http://localhost:8080');
 	}
 	function esc(s) {
   		return s.replace(/\&/g, "&amp;")
@@ -84,7 +84,7 @@ window.onload = function(){
 					var now = 210 - msgInput.value.length;
 					if(now >= 0){
 						toAllMsg();
-						textLength.textContent = '残り' + now + '文字';
+						textLength.textContent = now;
 					}
 				}
 			}
@@ -95,11 +95,11 @@ window.onload = function(){
 			if(now < 0){
 				var nowSubstring = String(now).substring(1);
 				textLength.classList.add('lengthOver');
-				textLength.textContent = nowSubstring + '文字オーバー';
+				textLength.textContent ='-'+ nowSubstring ;
 				send.disabled = true;
 			} else {
 				textLength.classList.remove('lengthOver');
-				textLength.textContent = '残り' + now + '文字';
+				textLength.textContent = now;
 				send.disabled = false;
 			}
 		}
@@ -112,7 +112,9 @@ window.onload = function(){
 	
 	var textLength = document.createElement('span');
 	textLength.setAttribute('id','text-length');
-	textLength.textContent = '残り210文字';
+	textLength.textContent = '210';
 	var bottom = document.getElementById('bottom');
 	bottom.append(textLength);	
+	
+	
 }
