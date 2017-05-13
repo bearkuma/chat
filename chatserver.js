@@ -39,7 +39,9 @@ var userIdArray = [];
 io.sockets.on('connection',function(socket){
 	
 	socket.on('enter',function(data){
-		if(data.value != null){
+		if(data.value === null){
+			io.sockets[socket.id].disconnect();
+		} else {
 		var msg = data.value + 'さんが入室しました';
 		hash[socket.id] = data.value;
 		userArray.push(data.value);
