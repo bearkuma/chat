@@ -45,7 +45,7 @@ window.onload = function(){
 	
 	function addMsg(msg){
 		var domNew = document.createElement('div');
-		domNew.innerHTML = esc(msg + '(' + new Date().toLocaleDateString() + ')');
+		domNew.innerHTML = esc(msg);
 		var contents = document.getElementById('contents');
 		contents.prepend(domNew);
 	}
