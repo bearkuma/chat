@@ -49,7 +49,7 @@ io.sockets.on('connection',function(socket){
 	})
 	
 	socket.on('disconnect',function(){
-		var msg = hash[socket.id] + 'さんが退出しました';
+		var msg = hash[socket.id] + '　さんが退出しました';
 		delete hash[socket.id];
 		io.sockets.emit('toAll',{value: msg});
 	})
