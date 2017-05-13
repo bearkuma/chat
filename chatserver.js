@@ -40,7 +40,7 @@ io.sockets.on('connection',function(socket){
 	
 	socket.on('enter',function(data){
 		var msg = data.value + 'さんが入室しました';
-		hash[sockeat.id] = data.value;
+		hash[socket.id] = data.value;
 		userArray.push(data.value);
 		userIdArray.push(socket.id);
 		io.sockets.emit('toAll',{value: msg, person: '　'});
