@@ -6,6 +6,7 @@ window.onload = function(){
 		var userId = data.userId;
 		var member = document.getElementById('member');
 		member.innerHTML = '';
+		member.style.color = '8F8';
 		for(var i = 0; i < userList.length; i++){
 			var domMemIn = document.createElement('div');
 				domMemIn.innerHTML = data.userList[i];
@@ -21,7 +22,7 @@ window.onload = function(){
 		var userId = data.userId;
 		var member = document.getElementById('member');
 		member.innerHTML = '';
-		console.log(userId);
+		member.style.color = '8F8';
 		for(var i = 0; i < userList.length; i++){
 			var domMemOut = document.createElement('div');
 				domMemOut.innerHTML = data.userList[i];
@@ -42,7 +43,6 @@ window.onload = function(){
 		var contents = document.getElementById('contents');
 		contents.prepend(domNew);
 	}
-	console.log(localStorage.getItem('chatter'));
 	var myName = localStorage.getItem('chatter')
 	start(myName);
 	
