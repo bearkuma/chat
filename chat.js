@@ -2,16 +2,32 @@ window.onload = function(){
 	var socketio = io.connect();
 	
 	socketio.on('enter', function(data){
-		var domMemIn = document.createElement('div');
-		domMemIn.innerHTML = data.value;
+		var userList = data.userList;
+		var userId = data.userId;
 		var member = document.getElementById('member');
-		member.prepend(domMemIn);
+		member.innerHTML = '';
+		for(var i = 0; i < userList.length; i++){
+			var domMemIn = document.createElement('div');
+				domMemIn.innerHTML = data.userList[i];
+				domMemIn.id = userId[i];
+			member.prepend(domMemIn);
 	});
 	socketio.on('toAll', function(data){
-			addMsg(data.value);
+		addMsg(data.value);
 	});
-	socketio.on('disconnect', function(){});	
-	
+	socketio.on('disconnect', function(data){	
+		var userList = data.userList;
+		var userId = data.userId;
+		var member = document.getElementById('member');
+		member.innerHTML = '';
+		console.log(userId);
+		for(var i = 0; i < userList.length; i++){
+			var domMemOut = document.createElement('div');
+				domMemOut.innerHTML = data.userList[i];
+				domMemOut.id = userId[i];
+			member.prepend(domMemOut);
+		}
+	});
 	function toAllMsg(){
 		var msgInput = document.getElementById('msgInput');
 		var msg = myName + '　：　'　+ msgInput.value;
