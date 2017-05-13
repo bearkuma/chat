@@ -34,14 +34,18 @@ console.log('start server');
 var io = require('socket.io').listen(server);
 
 var hash = {};
+var userArray = [];
+var userIdArray = [];
 
 io.sockets.on('connection',function(socket){
 	
 	socket.on('enter',function(name){
 		var msg = name + '　さんが入室しました';
 		hash[socket.id] = name;
-		io.sockets.emit('toAll',{value: msg})
-		io.sockets.emit('enter',{value: name});
+		userArray.push(name);
+		userIdArray.push(socket.id);
+		io.sockets.emit('toAll',{value: msg});
+		io.sockets.emit('enter',{value: name,userList: userArray,userId: userIdArray});
 	})
 	
 	socket.on('toAll',function(data){
@@ -51,7 +55,11 @@ io.sockets.on('connection',function(socket){
 	socket.on('disconnect',function(){
 		var msg = hash[socket.id] + '　さんが退出しました';
 		delete hash[socket.id];
-		io.sockets.emit('toAll',{value: msg});
+		io.sockets.emit('toAll', {value:msg});
+		var searchNum = userIdArray.indexOf(socket.id);
+		userIdArray.splice(searchNum, 1);
+		userArray.splice(searchNum, 1);
+		io.sockets.emit('disconnect',{userList: userArray,userId: userIdArray});
 	})
 });
 
