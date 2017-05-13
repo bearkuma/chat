@@ -11,6 +11,7 @@ window.onload = function(){
 				domMemIn.innerHTML = data.userList[i];
 				domMemIn.id = userId[i];
 			member.prepend(domMemIn);
+		}
 	});
 	socketio.on('toAll', function(data){
 		addMsg(data.value);
