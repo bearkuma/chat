@@ -6,6 +6,13 @@ body{
 	padding:0;
 	height:100%;
 	overflow:hidden;
+	font-size:calc(6px + 1vw);
+}
+button{
+	width:14vw;
+	max-width:100px;
+	font-size:calc(6px + 0.5vw);
+  }
 }
 
 #container{
@@ -18,7 +25,7 @@ body{
 	top:0;
 	left:0;
 	height:100%;
-	width:14%;
+	width:20%;
 }
 #memberTop{
 	text-align: center;
@@ -34,7 +41,7 @@ body{
 	top:0;
 	right:0;
 	height:99%;
-	width:85%;
+	width:80%;
 	padding:1%;
 	overflow:scroll;
 }
@@ -62,21 +69,23 @@ body{
 	margin:0.5% auto;
 	margin-right:2%;
 	padding-right:2%;
-	width:15%;
+	width:20%;
 }
 
 .domNew2{
 	margin:0.5% auto;
 	float:left;
-	width:75%;
+	width:70%;
 }
 
 #back{
 	background-color:#6f6;
 	border:1px solid #4c4;
-	border-radius:110px;
+	border-radius:10px;
 	float:right;
-	margin:1.5%;
+	margin:0 auto;
+	height:100%;
+	padding:0.3%;
 }
 
 #text-length{
