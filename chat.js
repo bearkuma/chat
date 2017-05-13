@@ -6,13 +6,13 @@ window.onload = function(){
 		var userId = data.userId;
 		var member = document.getElementById('member');
 		member.innerHTML = '';
-		member.style.color = '8F8';
 		for(var i = 0; i < userList.length; i++){
 			var domMemIn = document.createElement('div');
 				domMemIn.innerHTML = data.userList[i];
 				domMemIn.id = userId[i];
 			member.prepend(domMemIn);
 		}
+		member.style.color = '#AF5';
 	});
 	socketio.on('toAll', function(data){
 		addMsg(data.value);
@@ -22,13 +22,13 @@ window.onload = function(){
 		var userId = data.userId;
 		var member = document.getElementById('member');
 		member.innerHTML = '';
-		member.style.color = '8F8';
 		for(var i = 0; i < userList.length; i++){
 			var domMemOut = document.createElement('div');
 				domMemOut.innerHTML = data.userList[i];
 				domMemOut.id = userId[i];
 			member.prepend(domMemOut);
 		}
+		member.style.color = '#AF5';
 	});
 	function toAllMsg(){
 		var msgInput = document.getElementById('msgInput');
