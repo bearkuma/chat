@@ -1,7 +1,7 @@
 window.onload = function(){
-	
-	var socketio = io.connect();
-	
+	if(myname != null){
+		var socketio = io.connect();
+	}
 	function esc(s) {
   		return s.replace(/\&/g, "&amp;")
 				.replace(/</g, "&lt;")
