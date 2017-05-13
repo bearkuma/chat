@@ -3,7 +3,9 @@ window.onload = function(){
 	function esc(s) {
   	return s.replace(/\&/g, "&amp;")
           	.replace(/</g, "&lt;")
-          	.replace(/>/g, "&gt;");
+          	.replace(/>/g, "&gt;")
+		.replace(/"/g, '&quot;')
+		.replace(/'/g, '&#39;');
 	}
 	socketio.on('enter', function(data){
 		var userList = data.userList;
