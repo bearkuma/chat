@@ -75,6 +75,8 @@ window.onload = function(){
 		send.onclick = function(){
 			if(msgInput.value != ''){
 				toAllMsg();
+				var now = 210 - msgInput.value.length;
+				textLength.textContent = now;
 			}
 		}
 	
