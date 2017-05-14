@@ -115,6 +115,4 @@ window.onload = function(){
 	textLength.textContent = '210';
 	var bottom = document.getElementById('bottom');
 	bottom.append(textLength);	
-	
-	
 }
