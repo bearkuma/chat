@@ -20,7 +20,7 @@ window.onload = function(){
 			var domMemIn = document.createElement('div');
 				domMemIn.innerHTML = esc(data.userList[i]);
 				domMemIn.id = userId[i];
-			member.prepend(domMemIn);
+			member.insertBefore(domMemIn,member.firstChild);
 		}
 		member.style.color = '#FF5';
 		
@@ -37,7 +37,7 @@ window.onload = function(){
 			var domMemOut = document.createElement('div');
 				domMemOut.innerHTML = esc(data.userList[i]);
 				domMemOut.id = userId[i];
-			member.prepend(domMemOut);
+			member.insertBefore(domMemOut,member.firstChild);
 		}
 		member.style.color = '#FF5';
 	});
@@ -59,8 +59,8 @@ window.onload = function(){
 		domNew2.innerHTML = esc(msg);
 		domNew2.classList.add('domNew2');
 		var contents = document.getElementById('contents');
-		contents.prepend(domNew2);
-		contents.prepend(domNew1);
+		contents.insertBefore(domNew2, contents.firstChild);
+		contents.insertBefore(domNew1, contents.firstChild);
 		if(esc(per) != '　'){
 			domNew1.style.borderRight = '1px solid #000';
 			domNew1.style.borderRadius = '100px';
