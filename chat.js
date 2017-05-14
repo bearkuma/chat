@@ -114,5 +114,5 @@ window.onload = function(){
 	textLength.setAttribute('id','text-length');
 	textLength.textContent = '210';
 	var bottom = document.getElementById('bottom');
-	bottom.appendChild(textLength);	
+	bottom.prependChild(textLength);	
 }
