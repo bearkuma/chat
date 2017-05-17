@@ -37,6 +37,10 @@ button{
 	padding:5%;
 }
 
+#member > div {
+	margin-bottom:10%;
+}
+
 #contents{
 	background-color:#FAF;
 	position:absolute;
@@ -46,6 +50,9 @@ button{
 	width:80%;
 	padding:1%;
 	overflow:scroll;
+}
+#contents > div {
+	margin-bottom:1%;
 }
 
 #bottom{
