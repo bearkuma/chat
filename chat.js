@@ -11,6 +11,7 @@ window.onload = function(){
 				.replace(/'/g, '&#39;');
 	}
 	
+	
 	socketio.on('enter', function(data){
 		var userList = data.userList;
 		var userId = data.userId;
